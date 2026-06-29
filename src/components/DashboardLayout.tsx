@@ -8,7 +8,9 @@ type DashboardLayoutProps = {
   editingTask: Task | null
   onCancelEdit: () => void
   onCreateTask: (input: TaskInput) => void
+  onDeleteTask: (taskId: string) => void
   onEditTask: (taskId: string) => void
+  onToggleTask: (taskId: string) => void
   onUpdateTask: (taskId: string, input: TaskInput) => void
   summary: TaskSummary
   tasks: Task[]
@@ -18,7 +20,9 @@ export function DashboardLayout({
   editingTask,
   onCancelEdit,
   onCreateTask,
+  onDeleteTask,
   onEditTask,
+  onToggleTask,
   onUpdateTask,
   summary,
   tasks,
@@ -38,7 +42,9 @@ export function DashboardLayout({
         </div>
 
         <TaskPreviewList
+          onDeleteTask={onDeleteTask}
           onEditTask={onEditTask}
+          onToggleTask={onToggleTask}
           pendingCount={summary.pending}
           tasks={tasks}
         />

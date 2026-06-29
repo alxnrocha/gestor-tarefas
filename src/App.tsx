@@ -5,7 +5,13 @@ import { DashboardLayout } from './components/DashboardLayout'
 import { HeroSection } from './components/HeroSection'
 import { demoTasks } from './data/demoTasks'
 import type { Task, TaskInput } from './types/task'
-import { createTask, getTaskSummary, replaceTask } from './utils/taskUtils'
+import {
+  createTask,
+  getTaskSummary,
+  removeTask,
+  replaceTask,
+  toggleTaskStatus,
+} from './utils/taskUtils'
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>(demoTasks)
@@ -38,6 +44,26 @@ function App() {
     setEditingTaskId(null)
   }
 
+  function handleToggleTask(taskId: string) {
+    setTasks((currentTasks) => {
+      const currentTask = currentTasks.find((task) => task.id === taskId)
+
+      if (!currentTask) {
+        return currentTasks
+      }
+
+      return replaceTask(currentTasks, toggleTaskStatus(currentTask))
+    })
+  }
+
+  function handleDeleteTask(taskId: string) {
+    setTasks((currentTasks) => removeTask(currentTasks, taskId))
+
+    if (editingTaskId === taskId) {
+      setEditingTaskId(null)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <AppHeader />
@@ -47,7 +73,9 @@ function App() {
           editingTask={editingTask}
           onCancelEdit={() => setEditingTaskId(null)}
           onCreateTask={handleCreateTask}
+          onDeleteTask={handleDeleteTask}
           onEditTask={setEditingTaskId}
+          onToggleTask={handleToggleTask}
           onUpdateTask={handleUpdateTask}
           summary={summary}
           tasks={tasks}
