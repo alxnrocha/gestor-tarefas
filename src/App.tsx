@@ -6,25 +6,12 @@ import {
   Plus,
 } from 'lucide-react'
 
-const previewTasks = [
-  {
-    title: 'Preparar propuesta del cliente',
-    meta: 'Alta prioridad',
-    done: false,
-  },
-  {
-    title: 'Revisar presupuesto semanal',
-    meta: 'Hoy',
-    done: true,
-  },
-  {
-    title: 'Enviar documentacion pendiente',
-    meta: 'Trabajo',
-    done: false,
-  },
-]
+import { demoTasks } from './data/demoTasks'
+import { getTaskSummary } from './utils/taskUtils'
 
 function App() {
+  const summary = getTaskSummary(demoTasks)
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="mx-auto grid min-h-screen w-full max-w-6xl gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1fr)] lg:items-center lg:py-12">
@@ -75,13 +62,14 @@ function App() {
                 <h2 className="mt-1 text-2xl font-bold">Panel de tareas</h2>
               </div>
               <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-bold text-white">
-                2 activas
+                {summary.pending} activas
               </span>
             </div>
 
             <div className="mt-4 grid gap-3">
-              {previewTasks.map((task) => {
-                const Icon = task.done ? CheckCircle2 : Circle
+              {demoTasks.map((task) => {
+                const isCompleted = task.status === 'completed'
+                const Icon = isCompleted ? CheckCircle2 : Circle
 
                 return (
                   <article
@@ -90,12 +78,16 @@ function App() {
                   >
                     <Icon
                       aria-hidden="true"
-                      className={task.done ? 'text-emerald-600' : 'text-slate-400'}
+                      className={
+                        isCompleted ? 'text-emerald-600' : 'text-slate-400'
+                      }
                       size={22}
                     />
                     <div>
                       <h3 className="font-bold">{task.title}</h3>
-                      <p className="mt-1 text-sm text-slate-500">{task.meta}</p>
+                      <p className="mt-1 text-sm text-slate-500">
+                        {task.category} - Prioridad {task.priority}
+                      </p>
                     </div>
                   </article>
                 )
