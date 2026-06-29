@@ -4,19 +4,31 @@ import { AppHeader } from './components/AppHeader'
 import { DashboardLayout } from './components/DashboardLayout'
 import { HeroSection } from './components/HeroSection'
 import { demoTasks } from './data/demoTasks'
-import type { Task, TaskInput } from './types/task'
+import type { Task, TaskFilters, TaskInput } from './types/task'
 import {
   createTask,
+  filterTasks,
+  getTaskCategories,
   getTaskSummary,
   removeTask,
   replaceTask,
   toggleTaskStatus,
 } from './utils/taskUtils'
 
+const initialFilters: TaskFilters = {
+  status: 'all',
+  priority: 'all',
+  category: 'all',
+  query: '',
+}
+
 function App() {
   const [tasks, setTasks] = useState<Task[]>(demoTasks)
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null)
+  const [filters, setFilters] = useState<TaskFilters>(initialFilters)
   const summary = getTaskSummary(tasks)
+  const visibleTasks = filterTasks(tasks, filters)
+  const categories = getTaskCategories(tasks)
   const editingTask =
     tasks.find((task) => task.id === editingTaskId) ?? null
 
@@ -75,10 +87,14 @@ function App() {
           onCreateTask={handleCreateTask}
           onDeleteTask={handleDeleteTask}
           onEditTask={setEditingTaskId}
+          onFiltersChange={setFilters}
           onToggleTask={handleToggleTask}
           onUpdateTask={handleUpdateTask}
+          taskCategories={categories}
+          taskFilters={filters}
           summary={summary}
-          tasks={tasks}
+          tasks={visibleTasks}
+          totalTaskCount={tasks.length}
         />
       </main>
     </div>

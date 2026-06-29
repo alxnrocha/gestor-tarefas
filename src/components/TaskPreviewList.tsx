@@ -8,6 +8,7 @@ type TaskPreviewListProps = {
   onToggleTask: (taskId: string) => void
   pendingCount: number
   tasks: Task[]
+  totalTaskCount: number
 }
 
 export function TaskPreviewList({
@@ -16,6 +17,7 @@ export function TaskPreviewList({
   onToggleTask,
   pendingCount,
   tasks,
+  totalTaskCount,
 }: TaskPreviewListProps) {
   return (
     <aside
@@ -30,11 +32,26 @@ export function TaskPreviewList({
           </h2>
         </div>
         <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-bold text-white">
-          {pendingCount} activas
+          {tasks.length}/{totalTaskCount} visibles
         </span>
       </div>
 
+      <p className="mt-4 text-sm text-slate-500">
+        {pendingCount} tareas activas en total.
+      </p>
+
       <div className="mt-4 grid gap-3">
+        {tasks.length === 0 && (
+          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
+            <p className="font-bold text-slate-900">
+              No hay tareas con estos filtros.
+            </p>
+            <p className="mt-2 text-sm text-slate-500">
+              Ajusta la busqueda o limpia los filtros para recuperar la lista.
+            </p>
+          </div>
+        )}
+
         {tasks.map((task) => {
           const isCompleted = task.status === 'completed'
           const Icon = isCompleted ? CheckCircle2 : Circle

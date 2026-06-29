@@ -1,4 +1,4 @@
-import type { Task, TaskSummary } from '../types/task'
+import type { Task, TaskFilters, TaskSummary } from '../types/task'
 import type { TaskInput } from '../types/task'
 import { FilterPanel } from './FilterPanel'
 import { TaskFormPanel } from './TaskFormPanel'
@@ -10,10 +10,14 @@ type DashboardLayoutProps = {
   onCreateTask: (input: TaskInput) => void
   onDeleteTask: (taskId: string) => void
   onEditTask: (taskId: string) => void
+  onFiltersChange: (filters: TaskFilters) => void
   onToggleTask: (taskId: string) => void
   onUpdateTask: (taskId: string, input: TaskInput) => void
   summary: TaskSummary
+  taskCategories: string[]
+  taskFilters: TaskFilters
   tasks: Task[]
+  totalTaskCount: number
 }
 
 export function DashboardLayout({
@@ -22,10 +26,14 @@ export function DashboardLayout({
   onCreateTask,
   onDeleteTask,
   onEditTask,
+  onFiltersChange,
   onToggleTask,
   onUpdateTask,
   summary,
+  taskCategories,
+  taskFilters,
   tasks,
+  totalTaskCount,
 }: DashboardLayoutProps) {
   return (
     <section className="bg-slate-100 text-slate-950">
@@ -38,7 +46,11 @@ export function DashboardLayout({
             onCreateTask={onCreateTask}
             onUpdateTask={onUpdateTask}
           />
-          <FilterPanel />
+          <FilterPanel
+            categories={taskCategories}
+            filters={taskFilters}
+            onFiltersChange={onFiltersChange}
+          />
         </div>
 
         <TaskPreviewList
@@ -47,6 +59,7 @@ export function DashboardLayout({
           onToggleTask={onToggleTask}
           pendingCount={summary.pending}
           tasks={tasks}
+          totalTaskCount={totalTaskCount}
         />
       </div>
     </section>
