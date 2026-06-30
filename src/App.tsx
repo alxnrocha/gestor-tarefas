@@ -90,7 +90,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <AppHeader />
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <HeroSection summary={summary} />
         <DashboardLayout
           editingTask={editingTask}

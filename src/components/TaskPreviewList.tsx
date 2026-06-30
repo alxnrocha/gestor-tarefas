@@ -22,7 +22,7 @@ export function TaskPreviewList({
   return (
     <aside
       aria-labelledby="task-list-title"
-      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:self-start"
     >
       <div className="flex items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
@@ -31,12 +31,16 @@ export function TaskPreviewList({
             Panel de tareas
           </h2>
         </div>
-        <span className="rounded-full bg-slate-950 px-3 py-1 text-sm font-bold text-white">
+        <span
+          aria-live="polite"
+          className="shrink-0 rounded-full bg-slate-950 px-3 py-1 text-sm font-bold text-white"
+          role="status"
+        >
           {tasks.length}/{totalTaskCount} visibles
         </span>
       </div>
 
-      <p className="mt-4 text-sm text-slate-500">
+      <p aria-live="polite" className="mt-4 text-sm text-slate-500" role="status">
         {pendingCount} tareas activas en total.
       </p>
 
@@ -58,7 +62,7 @@ export function TaskPreviewList({
 
           return (
             <article
-              className="grid gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
+              className="grid min-w-0 gap-4 rounded-xl border border-slate-200 bg-slate-50 p-4"
               key={task.id}
             >
               <div className="flex min-w-0 items-start gap-3">
@@ -85,8 +89,8 @@ export function TaskPreviewList({
                     <h3
                       className={
                         isCompleted
-                          ? 'font-bold text-slate-500 line-through'
-                          : 'font-bold text-slate-950'
+                          ? 'break-words font-bold text-slate-500 line-through'
+                          : 'break-words font-bold text-slate-950'
                       }
                     >
                       {task.title}
@@ -96,14 +100,14 @@ export function TaskPreviewList({
                     </span>
                   </div>
                   {task.description && (
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                    <p className="mt-2 break-words text-sm leading-6 text-slate-600">
                       {task.description}
                     </p>
                   )}
                   <dl className="mt-3 flex flex-wrap gap-2 text-xs font-semibold text-slate-500">
                     <div className="rounded-full bg-white px-2 py-1">
                       <dt className="sr-only">Categoria</dt>
-                      <dd>{task.category}</dd>
+                      <dd className="break-words">{task.category}</dd>
                     </div>
                     <div className="rounded-full bg-white px-2 py-1">
                       <dt className="sr-only">Prioridad</dt>
@@ -119,8 +123,9 @@ export function TaskPreviewList({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                 <button
+                  aria-label={`Editar tarea ${task.title}`}
                   className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-slate-300 px-3 text-xs font-bold text-slate-700 transition hover:border-emerald-500 hover:text-emerald-700"
                   onClick={() => onEditTask(task.id)}
                   type="button"
@@ -129,6 +134,7 @@ export function TaskPreviewList({
                   Editar
                 </button>
                 <button
+                  aria-label={`Eliminar tarea ${task.title}`}
                   className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg border border-red-200 px-3 text-xs font-bold text-red-700 transition hover:border-red-400 hover:bg-red-50"
                   onClick={() => onDeleteTask(task.id)}
                   type="button"

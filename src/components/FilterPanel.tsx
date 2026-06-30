@@ -36,7 +36,7 @@ export function FilterPanel({
   return (
     <section
       aria-labelledby="filters-title"
-      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+      className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
       id="filtros"
     >
       <div className="flex items-start justify-between gap-4">

@@ -76,7 +76,7 @@ export function TaskFormPanel({
   return (
     <section
       aria-labelledby="task-form-title"
-      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+      className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
       id="tareas"
     >
       <div className="flex items-start justify-between gap-4">
