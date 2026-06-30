@@ -43,6 +43,10 @@ a {
   text-decoration: none;
 }
 
+#contenido:focus {
+  outline: none;
+}
+
 :focus-visible {
   outline: 3px solid #6ee7b7;
   outline-offset: 3px;

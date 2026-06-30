@@ -8,7 +8,7 @@ type HeroSectionProps = {
 
 export function HeroSection({ summary }: HeroSectionProps) {
   return (
-    <section className="border-b border-white/10" id="inicio">
+    <section className="scroll-mt-28 border-b border-white/10" id="inicio">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,1fr)] lg:items-center lg:py-14">
         <div className="min-w-0">
           <p className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-semibold text-emerald-200">
@@ -44,8 +44,10 @@ export function HeroSection({ summary }: HeroSectionProps) {
 
         <div
           aria-label="Resumen general"
-          className="grid gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-black/30 backdrop-blur sm:grid-cols-2"
+          aria-live="polite"
+          className="grid scroll-mt-28 gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-black/30 backdrop-blur sm:grid-cols-2"
           id="resumen"
+          role="status"
         >
           <SummaryMetric label="Total" value={summary.total} />
           <SummaryMetric label="Activas" value={summary.pending} />
