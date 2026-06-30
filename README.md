@@ -3,15 +3,29 @@
 Aplicacion responsive para organizar tareas personales o de trabajo con React,
 TypeScript y persistencia local en el navegador.
 
+El proyecto funciona como un gestor local de productividad: permite crear,
+editar, completar, eliminar, buscar y filtrar tareas sin backend ni cuenta de
+usuario.
+
 ## Estado
 
-Estructura inicial creada:
+La aplicacion principal esta implementada:
 
-- proyecto React con TypeScript y Vite;
-- Tailwind CSS configurado;
-- base preparada para GitHub Pages;
-- pantalla inicial responsive;
-- documentacion tecnica inicial.
+- creacion y edicion de tareas;
+- validacion local de titulo y categoria;
+- prioridades, categorias, descripcion y fecha limite;
+- acciones para completar, reactivar y eliminar tareas;
+- filtros por estado, prioridad y categoria;
+- busqueda por titulo, descripcion o categoria;
+- resumen dinamico de tareas totales, activas, completadas y de alta prioridad;
+- persistencia en `localStorage`;
+- estados vacios y mensajes accesibles;
+- navegacion responsive con enlace para saltar al contenido;
+- preparacion para GitHub Pages.
+
+URL publica:
+
+https://alxnrocha.github.io/gestor-tarefas/
 
 ## Stack
 
@@ -33,8 +47,13 @@ Estructura inicial creada:
 |-- index.html
 |-- public/
 |-- screenshots/
+|   |-- desktop.png
+|   `-- mobile.png
 |-- src/
-|   |-- assets/
+|   |-- components/
+|   |-- data/
+|   |-- types/
+|   |-- utils/
 |   |-- App.tsx
 |   |-- index.css
 |   `-- main.tsx
@@ -56,6 +75,41 @@ npm run lint
 npm run build
 npm run preview
 ```
+
+## Capturas
+
+### Escritorio
+
+![Vista completa de Gestor de Tareas en escritorio](./screenshots/desktop.png)
+
+### Movil
+
+![Vista completa de Gestor de Tareas en movil](./screenshots/mobile.png)
+
+## Deploy
+
+Proyecto preparado para publicacion automatica con GitHub Pages:
+
+[https://alxnrocha.github.io/gestor-tarefas/](https://alxnrocha.github.io/gestor-tarefas/)
+
+## Datos y persistencia
+
+Las tareas se guardan en `localStorage` con una clave versionada. Si no hay
+datos guardados o el contenido almacenado no tiene la forma esperada, la
+aplicacion vuelve a cargar tareas de demostracion.
+
+## Validacion y accesibilidad
+
+El formulario valida:
+
+- titulo obligatorio;
+- categoria obligatoria;
+- mensajes de error asociados a los campos;
+- estado invalido en controles con error;
+- acciones de lista con nombres accesibles;
+- resumen y contadores anunciables;
+- navegacion por teclado y foco visible;
+- enlace para saltar al contenido principal.
 
 ## Documentacion
 
