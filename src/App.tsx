@@ -14,6 +14,7 @@ import {
   replaceTask,
   toggleTaskStatus,
 } from './utils/taskUtils'
+import { loadStoredTasks, saveStoredTasks } from './utils/taskStorage'
 
 const initialFilters: TaskFilters = {
   status: 'all',
@@ -23,7 +24,7 @@ const initialFilters: TaskFilters = {
 }
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(demoTasks)
+  const [tasks, setTasks] = useState<Task[]>(() => loadStoredTasks(demoTasks))
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null)
   const [filters, setFilters] = useState<TaskFilters>(initialFilters)
   const summary = getTaskSummary(tasks)
@@ -33,11 +34,11 @@ function App() {
     tasks.find((task) => task.id === editingTaskId) ?? null
 
   function handleCreateTask(input: TaskInput) {
-    setTasks((currentTasks) => [createTask(input), ...currentTasks])
+    updateTasks((currentTasks) => [createTask(input), ...currentTasks])
   }
 
   function handleUpdateTask(taskId: string, input: TaskInput) {
-    setTasks((currentTasks) => {
+    updateTasks((currentTasks) => {
       const currentTask = currentTasks.find((task) => task.id === taskId)
 
       if (!currentTask) {
@@ -57,7 +58,7 @@ function App() {
   }
 
   function handleToggleTask(taskId: string) {
-    setTasks((currentTasks) => {
+    updateTasks((currentTasks) => {
       const currentTask = currentTasks.find((task) => task.id === taskId)
 
       if (!currentTask) {
@@ -69,11 +70,21 @@ function App() {
   }
 
   function handleDeleteTask(taskId: string) {
-    setTasks((currentTasks) => removeTask(currentTasks, taskId))
+    updateTasks((currentTasks) => removeTask(currentTasks, taskId))
 
     if (editingTaskId === taskId) {
       setEditingTaskId(null)
     }
+  }
+
+  function updateTasks(getNextTasks: (currentTasks: Task[]) => Task[]) {
+    setTasks((currentTasks) => {
+      const nextTasks = getNextTasks(currentTasks)
+
+      saveStoredTasks(nextTasks)
+
+      return nextTasks
+    })
   }
 
   return (
