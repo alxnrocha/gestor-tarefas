@@ -29,9 +29,6 @@
 ```text
 05-gestor-tarefas/
 ├── index.html                     # Entrypoint HTML5
-├── screenshots/                   # Capturas de pantalla reales
-│   ├── desktop.png
-│   └── mobile.png
 ├── src/
 │   ├── components/                # Formulario de creación, listado y filtros
 │   ├── data/                      # Tareas de demostración predefinidas
