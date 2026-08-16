@@ -1,121 +1,92 @@
-# Gestor de Tareas
+# Gestor de Tareas — Productividad y Gestión de Flujos de Trabajo
 
-Aplicacion responsive para organizar tareas personales o de trabajo con React,
-TypeScript y persistencia local en el navegador.
+[![Demo GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-22c55e?style=for-the-badge&logo=github&logoColor=white)](https://alxnrocha.github.io/gestor-tarefas/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.2-61dafb.svg)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-El proyecto funciona como un gestor local de productividad: permite crear,
-editar, completar, eliminar, buscar y filtrar tareas sin backend ni cuenta de
-usuario.
+**Gestor de Tareas** es una aplicación web SPA para la organización y seguimiento de productividad personal o de equipo. Permite gestionar ciclos de vida de tareas con prioridades, categorías, fechas límite, filtros combinados y persistencia local versionada.
 
-## Estado
+- 🌐 **Demo en Vivo (GitHub Pages):** [https://alxnrocha.github.io/gestor-tarefas/](https://alxnrocha.github.io/gestor-tarefas/)
+- 📦 **Repositorio GitHub:** [https://github.com/alxnrocha/gestor-tarefas](https://github.com/alxnrocha/gestor-tarefas)
 
-La aplicacion principal esta implementada:
+---
 
-- creacion y edicion de tareas;
-- validacion local de titulo y categoria;
-- prioridades, categorias, descripcion y fecha limite;
-- acciones para completar, reactivar y eliminar tareas;
-- filtros por estado, prioridad y categoria;
-- busqueda por titulo, descripcion o categoria;
-- resumen dinamico de tareas totales, activas, completadas y de alta prioridad;
-- persistencia en `localStorage`;
-- estados vacios y mensajes accesibles;
-- navegacion responsive con enlace para saltar al contenido;
-- preparacion para GitHub Pages.
+## 📸 Vistas Reales del Sistema
 
-URL publica:
+### 1. Vista Principal (Desktop)
 
-https://alxnrocha.github.io/gestor-tarefas/
+![Vista desktop de Gestor de Tareas](./screenshots/desktop.png)
 
-## Stack
+### 2. Experiencia Responsive (Móvil)
 
-- React;
-- TypeScript;
-- Vite;
-- Tailwind CSS;
-- Lucide React;
-- localStorage;
-- Git y GitHub.
+![Vista mobile de Gestor de Tareas](./screenshots/mobile.png)
 
-## Estructura
+---
+
+## ✨ Características Principales
+
+### 🚀 Experiencia de Usuario & Frontend
+- **Gestión Completa de Tareas (CRUD):** Creación, edición en línea, completado/reactivación y eliminación de tareas con confirmación.
+- **Filtros Avanzados y Búsqueda Instantánea:** Búsqueda en tiempo real por título y filtrado multicriterio por estado (`Todas`, `Pendientes`, `Completadas`), nivel de prioridad (`Baja`, `Media`, `Alta`, `Urgente`) y categorías temáticas.
+- **Persistencia en LocalStorage:** Esquema versionado con fallback automático a datos de demostración si el almacenamiento local está vacío.
+- **Métricas Dinámicas de Productividad:** Contadores en tiempo real de tareas totales, completadas, pendientes y volumen de alta prioridad.
+- **Accesibilidad Completa (WCAG):** Estados de foco visibles, soporte para navegación integral con teclado y regiones vivas para anuncios a lectores de pantalla.
+
+---
+
+## 🏛️ Estructura del Proyecto
 
 ```text
-.
-|-- BLUEPRINT.md
-|-- DECISIONS.md
-|-- README.md
-|-- index.html
-|-- public/
-|-- screenshots/
-|   |-- desktop.png
-|   `-- mobile.png
-|-- src/
-|   |-- components/
-|   |-- data/
-|   |-- types/
-|   |-- utils/
-|   |-- App.tsx
-|   |-- index.css
-|   `-- main.tsx
-`-- package.json
+05-gestor-tarefas/
+├── index.html                     # Entrypoint HTML5
+├── screenshots/                   # Capturas de pantalla reales
+│   ├── desktop.png
+│   └── mobile.png
+├── src/
+│   ├── components/                # Formulario de creación, listado y filtros
+│   ├── data/                      # Tareas de demostración predefinidas
+│   ├── types/                     # Tipos de tareas, prioridades y filtros
+│   ├── utils/                     # Persistencia en localStorage y utilidades de fecha
+│   ├── App.tsx                    # Shell principal de la aplicación
+│   └── index.css                  # Tokens y temas de Tailwind CSS
+├── BLUEPRINT.md                   # Requisitos y planificación
+└── DECISIONS.md                   # Registro de decisiones de arquitectura
 ```
 
-## Ejecucion local
+---
 
+## ⚡ Guía de Inicio Rápido
+
+### 1. Clonar e Instalar Dependencias
 ```bash
+git clone https://github.com/alxnrocha/gestor-tarefas.git
+cd gestor-tarefas
 npm install
-npm run dev
 ```
 
-## Comandos
-
+### 2. Iniciar en Modo Desarrollo
 ```bash
 npm run dev
-npm run lint
-npm run build
-npm run preview
 ```
 
-## Capturas
+---
 
-### Escritorio
+## 🧪 Calidad de Código y Pruebas
 
-![Vista completa de Gestor de Tareas en escritorio](./screenshots/desktop.png)
+```bash
+# Análisis estático de código
+npm run lint
 
-### Movil
+# Compilar para producción
+npm run build
+```
 
-![Vista completa de Gestor de Tareas en movil](./screenshots/mobile.png)
+---
 
-## Deploy
+## 📄 Licencia
 
-Proyecto preparado para publicacion automatica con GitHub Pages:
+Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](./LICENSE) para más detalles.
 
-[https://alxnrocha.github.io/gestor-tarefas/](https://alxnrocha.github.io/gestor-tarefas/)
-
-## Datos y persistencia
-
-Las tareas se guardan en `localStorage` con una clave versionada. Si no hay
-datos guardados o el contenido almacenado no tiene la forma esperada, la
-aplicacion vuelve a cargar tareas de demostracion.
-
-## Validacion y accesibilidad
-
-El formulario valida:
-
-- titulo obligatorio;
-- categoria obligatoria;
-- mensajes de error asociados a los campos;
-- estado invalido en controles con error;
-- acciones de lista con nombres accesibles;
-- resumen y contadores anunciables;
-- navegacion por teclado y foco visible;
-- enlace para saltar al contenido principal.
-
-## Documentacion
-
-- [Blueprint](./BLUEPRINT.md): alcance, interfaz, datos y plan.
-- [Decisiones tecnicas](./DECISIONS.md): criterios de implementacion.
-
-## Autor
-
-Alexandre Rocha
+**Autor:** [Alexandre Rocha](https://github.com/alxnrocha)
