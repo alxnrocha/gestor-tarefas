@@ -13,18 +13,6 @@
 
 ---
 
-## 📸 Vistas Reales del Sistema
-
-### 1. Vista Principal (Desktop)
-
-![Vista desktop de Gestor de Tareas](./screenshots/desktop.png)
-
-### 2. Experiencia Responsive (Móvil)
-
-![Vista mobile de Gestor de Tareas](./screenshots/mobile.png)
-
----
-
 ## ✨ Características Principales
 
 ### 🚀 Experiencia de Usuario & Frontend
