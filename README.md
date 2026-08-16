@@ -39,8 +39,7 @@
 │   ├── utils/                     # Persistencia en localStorage y utilidades de fecha
 │   ├── App.tsx                    # Shell principal de la aplicación
 │   └── index.css                  # Tokens y temas de Tailwind CSS
-├── BLUEPRINT.md                   # Requisitos y planificación
-└── DECISIONS.md                   # Registro de decisiones de arquitectura
+└── vite.config.ts                 # Configuración de Vite
 ```
 
 ---
