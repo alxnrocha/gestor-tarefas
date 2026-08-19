@@ -12,18 +12,25 @@
 
 ---
 
-## ✨ Características Principales
+## 🌟 Visión General & Propuesta de Valor
 
-### 🚀 Experiencia de Usuario & Frontend
-- **Gestión Completa de Tareas (CRUD):** Creación, edición en línea, completado/reactivación y eliminación de tareas con confirmación.
-- **Filtros Avanzados y Búsqueda Instantánea:** Búsqueda en tiempo real por título y filtrado multicriterio por estado (`Todas`, `Pendientes`, `Completadas`), nivel de prioridad (`Baja`, `Media`, `Alta`, `Urgente`) y categorías temáticas.
-- **Persistencia en LocalStorage:** Esquema versionado con fallback automático a datos de demostración si el almacenamiento local está vacío.
-- **Métricas Dinámicas de Productividad:** Contadores en tiempo real de tareas totales, completadas, pendientes y volumen de alta prioridad.
-- **Accesibilidad Completa (WCAG):** Estados de foco visibles, soporte para navegación integral con teclado y regiones vivas para anuncios a lectores de pantalla.
+**Gestor de Tareas** es una herramienta web ágil para la gestión del flujo de trabajo y productividad individual.
+
+Permite organizar tareas por prioridades y categorías temáticas, realizar búsquedas instantáneas, alternar estados de completado y sincronizar datos en el almacenamiento local del navegador de forma persistente y segura.
 
 ---
 
-## 🏛️ Estructura del Proyecto
+## ✨ Características Principales
+
+- **Gestión Completa de Tareas (CRUD):** Creación, edición en línea, marcado de completado y eliminación con confirmación.
+- **Filtros Avanzados y Búsqueda Instantánea:** Filtrado multicriterio por estado (`Todas`, `Pendientes`, `Completadas`), prioridad (`Baja`, `Media`, `Alta`, `Urgente`) y categorías.
+- **Persistencia en LocalStorage:** Almacenamiento versionado con fallback automático a datos de demostración si está vacío.
+- **Métricas Dinámicas de Productividad:** Contadores en tiempo real de tareas totales, completadas, pendientes y volumen de alta prioridad.
+- **Accesibilidad Completa (WCAG):** Focos visibles, navegación con teclado y soporte para lectores de pantalla.
+
+---
+
+## 🏛️ Arquitectura del Proyecto
 
 ```text
 05-gestor-tarefas/
@@ -33,28 +40,51 @@
 │   ├── types/                     # Interfaces TypeScript
 │   ├── App.tsx                    # Componente raíz
 │   └── main.tsx                   # Punto de entrada
+├── LICENSE
 ├── package.json
 └── vite.config.ts
 ```
 
 ---
 
-## ⚡ Guía de Inicio Rápido
+## 🚀 Instalación y Puesta en Marcha
 
-### 1. Clonar el Repositorio
-```bash
-git clone https://github.com/alxnrocha/gestor-tarefas.git
-cd gestor-tarefas
-```
+### Prerrequisitos
+- Node.js `>= 20.0.0`
+- npm `>= 10.0.0`
 
-### 2. Instalar Dependencias y Ejecutar
-```bash
-npm install
-npm run dev
-```
+### Pasos
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/alxnrocha/gestor-tarefas.git
+   cd gestor-tarefas
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar en modo desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Compilar para producción:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🛡️ Calidad de Código & Testing
+
+- **Tipado Estricto:** Tipos e interfaces TypeScript para todas las entidades de tarea.
+- **Accesibilidad (a11y):** Verificación de WCAG 2.1 AA y navegación por teclado.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](./LICENSE) para más detalles.
+Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
