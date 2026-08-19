@@ -1,15 +1,14 @@
 # Gestor de Tareas — Productividad y Gestión de Flujos de Trabajo
 
-[![Demo GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-22c55e?style=for-the-badge&logo=github&logoColor=white)](https://alxnrocha.github.io/gestor-tarefas/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19.2-61dafb.svg)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8.svg)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success?style=flat-square&logo=github&logoColor=white)](https://alxnrocha.github.io/gestor-tarefas/)
+[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-**Gestor de Tareas** es una aplicación web SPA para la organización y seguimiento de productividad personal o de equipo. Permite gestionar ciclos de vida de tareas con prioridades, categorías, fechas límite, filtros combinados y persistencia local versionada.
-
-- 🌐 **Demo en Vivo (GitHub Pages):** [https://alxnrocha.github.io/gestor-tarefas/](https://alxnrocha.github.io/gestor-tarefas/)
-- 📦 **Repositorio GitHub:** [https://github.com/alxnrocha/gestor-tarefas](https://github.com/alxnrocha/gestor-tarefas)
+> **Proyecto 05 del Portafolio Profesional** — Aplicación web SPA para la organización de flujos de trabajo, seguimiento de productividad y control de tareas.  
+> 🔗 **Demo en Vivo en GitHub Pages:** [https://alxnrocha.github.io/gestor-tarefas/](https://alxnrocha.github.io/gestor-tarefas/)
 
 ---
 
@@ -28,43 +27,30 @@
 
 ```text
 05-gestor-tarefas/
-├── index.html                     # Entrypoint HTML5
+├── index.html
 ├── src/
-│   ├── components/                # Formulario de creación, listado y filtros
-│   ├── data/                      # Tareas de demostración predefinidas
-│   ├── types/                     # Tipos de tareas, prioridades y filtros
-│   ├── utils/                     # Persistencia en localStorage y utilidades de fecha
-│   ├── App.tsx                    # Shell principal de la aplicación
-│   └── index.css                  # Tokens y temas de Tailwind CSS
-└── vite.config.ts                 # Configuración de Vite
+│   ├── components/                # TaskList, TaskForm, MetricsCard, FilterBar
+│   ├── types/                     # Interfaces TypeScript
+│   ├── App.tsx                    # Componente raíz
+│   └── main.tsx                   # Punto de entrada
+├── package.json
+└── vite.config.ts
 ```
 
 ---
 
 ## ⚡ Guía de Inicio Rápido
 
-### 1. Clonar e Instalar Dependencias
+### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/alxnrocha/gestor-tarefas.git
 cd gestor-tarefas
+```
+
+### 2. Instalar Dependencias y Ejecutar
+```bash
 npm install
-```
-
-### 2. Iniciar en Modo Desarrollo
-```bash
 npm run dev
-```
-
----
-
-## 🧪 Calidad de Código y Pruebas
-
-```bash
-# Análisis estático de código
-npm run lint
-
-# Compilar para producción
-npm run build
 ```
 
 ---
@@ -72,5 +58,3 @@ npm run build
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulte el archivo [LICENSE](./LICENSE) para más detalles.
-
-**Autor:** [Alexandre Rocha](https://github.com/alxnrocha)
