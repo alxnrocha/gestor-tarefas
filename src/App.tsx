@@ -1,4 +1,3 @@
-import { ProjectBadge } from './components/ProjectBadge';
 import { useState } from 'react'
 
 import { AppHeader } from './components/AppHeader'
@@ -109,7 +108,6 @@ function App() {
           totalTaskCount={tasks.length}
         />
       </main>
-          <ProjectBadge />
     </div>
   )
 }
